@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Movie Recommender</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+<body>
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+        <br><br>
+        <h1 class="header center orange-text">Movie Recommender</h1>
+        <div class="row center">
+            <h5 class="header col s12 light">Enter a movie you like</h5>
+        </div>
+        <br><br>
+        <div class="row">
+            <form action="/recommend" method="post" enctype="multipart/form-data">
+                <br>
+                Movie Name: <input type="text" name="movie">
+                <br>
+                Max Results: <input type="number" min="1" name="max">
+                <br>
+                <input class="btn" type="submit" value="Send">
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
