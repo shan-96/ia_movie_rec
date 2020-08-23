@@ -33,7 +33,7 @@ def recommend():
         movie = request.form["movie"]
         max = request.form["max"]
         output = recom.get_recommendation(movie, max)
-    if request.form['group1'] == 'colab':
+    elif request.form['group1'] == 'colab':
         file = os.path.join('./static/', 'save_colab.p')
         recom = pickle.load(open(file, 'rb'))
         max = request.form["max"]
