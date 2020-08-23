@@ -17,11 +17,21 @@
         <br><br>
         <div class="row">
             <form action="/recommend" method="post" enctype="multipart/form-data">
-                <br>
-                Movie Name: <input type="text" name="movie">
+                Movie Name: <input type="text" placeholder="Only needed for Simple" name="movie">
                 <br>
                 Max Results: <input type="number" min="1" name="max">
                 <br>
+                User ID: <input placeholder="[1-943] Only needed for Collaborative" type="number" min="1" max="943" name="uid">
+                <br>
+                Recommendation Engine:
+                <label>
+                    <input name="group1" type="radio" value="simple" checked/>
+                    <span>Simple</span>
+                </label>
+                <label>
+                    <input name="group1" type="radio" value="colab"/>
+                    <span>Collaborative</span>
+                </label>
                 <input class="btn" type="submit" value="Send">
             </form>
         </div>

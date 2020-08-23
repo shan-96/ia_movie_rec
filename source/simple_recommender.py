@@ -5,7 +5,7 @@ import pickle
 import os
 
 
-class Recommender:
+class SimpleRecommender:
     def __init__(self, datapath):
         self.path = datapath
         self.df = None
@@ -26,7 +26,7 @@ class Recommender:
         cv = CountVectorizer()
         count_matrix = cv.fit_transform(self.df["combined_features"])
         self.cosine_sim = cosine_similarity(count_matrix)
-        file = os.path.join('./static/', 'save.p')
+        file = os.path.join('./static/', 'save_simple.p')
         pickle.dump(self, open(file, "wb"))
 
     def combine_features(self, row):
