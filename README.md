@@ -19,5 +19,3 @@ Approach (3) takes into account vector based similarity of data points based on 
 - Ensure port `5000` is unoccupied on localhost
 - On server start, fill up details on index page and hit send.
 - Please refer `EVALUATION.md` for validation related suggestions for this engine
-
-## References
