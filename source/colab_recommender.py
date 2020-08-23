@@ -29,15 +29,17 @@ class ColabRecommender:
         pickle.dump(self, open(file, "wb"))
 
     def create_similar(self, ratings, similarity, type='user'):
-        pred = None
+        # combination of item-item and user-user based collaborative filtering is implemented
+
+        recs = None
         if type == 'user':
             mean_user_rating = ratings.mean(axis=1)
             ratings_diff = (ratings - mean_user_rating[:, np.newaxis])
-            pred = mean_user_rating[:, np.newaxis] + similarity.dot(ratings_diff) / np.array(
+            recs = mean_user_rating[:, np.newaxis] + similarity.dot(ratings_diff) / np.array(
                 [np.abs(similarity).sum(axis=1)]).T
         elif type == 'item':
-            pred = ratings.dot(similarity) / np.array([np.abs(similarity).sum(axis=1)])
-        return pred
+            recs = ratings.dot(similarity) / np.array([np.abs(similarity).sum(axis=1)])
+        return recs
 
     def get_recommendation(self, user_id, max_limit):
         user_prediction = self.create_similar(self.data_matrix, self.user_similarity, type='user')[int(user_id)]
